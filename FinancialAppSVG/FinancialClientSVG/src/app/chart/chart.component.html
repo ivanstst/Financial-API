@@ -1,0 +1,22 @@
+<div id="parentDiv">
+    <h1 style="color: rgb(82, 162, 185)">Welcome, {{currentUser}}</h1>
+    <div id="topSection">
+        <form [formGroup]="chartGroup">
+            <div class="p-buttonset" style="display: flex; justify-content: flex-start; align-items: center;">
+                <p-selectButton [options]="symbolsToggleButtons" optionLabel="name" optionValue="name"
+                    formControlName="symbolValue" (click)="updateIntervalSelected()"></p-selectButton>
+                <p-selectButton [options]="intervalsToggleButtons" optionLabel="value" optionValue="value"
+                    formControlName="intervalValue" (click)="updateIntervalSelected()"></p-selectButton>
+                <button pButton type="button" label="Go to all Views" (click)="goToAllViews()"></button>
+            </div>
+        </form>
+    </div>
+    <div id="bottomSection">
+        <div>
+            <div class="card">
+                <p-chart type="line" [data]="data" [options]="options"></p-chart>
+            </div>
+        </div>
+        <button pButton type="button" label="Save View" (click)="goToAllViews()"></button>
+    </div>
+</div>

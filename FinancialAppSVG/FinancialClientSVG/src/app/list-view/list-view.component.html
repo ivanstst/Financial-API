@@ -1,0 +1,20 @@
+<button pButton type="button" id="backButton" label="Back" (click)="goBack()"></button>
+<p-table [value]="savedViews">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Symbol</th>
+      <th>Period</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-view>
+    <tr>
+      <td>{{ view.symbol }}</td>
+      <td>{{ view.period }}</td>
+      <td>
+        <button pButton type="button" label="View" (click)="viewSavedView(view)"></button>
+        <button pButton type="button" label="Delete" class="p-button-danger" (click)="deleteSavedView(view)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
